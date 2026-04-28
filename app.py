@@ -249,7 +249,7 @@ for reg in stvec:
                 legendgroup='HVCC',
                 showlegend=False,
                 marker=dict(
-                    color=np.full(len(l1), plotc),
+                    color=plotc,
                     size=1,
                     colorscale="magma_r",
                     cmin=color_range[0],
