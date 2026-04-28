@@ -47,9 +47,12 @@ def load_data():
 
     # --- stvec ---
     with open('./DATA/stvec.json', 'r') as f:
-        loaded_dict = json.load(f)
+    loaded_dict = json.load(f)
 
-    # FIX: remove extra json.loads()
+    # Handle both normal JSON and double-encoded JSON
+    if isinstance(loaded_dict, str):
+        loaded_dict = json.loads(loaded_dict)
+
     stvec = {k: np.array(v) for k, v in loaded_dict.items()}
 
     return (
