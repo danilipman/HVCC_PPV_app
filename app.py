@@ -163,7 +163,7 @@ trace_hvcc_0 = go.Scatter3d(
     marker=dict(
         color=hvcc_c,
         size=1,
-        colorscale="magma_r",
+        colorscale="magma",
         cmin=color_range[0],
         
         cmax=color_range[1],
@@ -251,7 +251,7 @@ for reg in stvec:
                 marker=dict(
                     color=plotc,
                     size=1,
-                    colorscale="magma_r",
+                    colorscale="magma",
                     cmin=color_range[0],
                     
                     cmax=color_range[1],
