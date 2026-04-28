@@ -1,0 +1,7 @@
+streamlit
+pandas
+plotly
+dash
+astropy
+numpy
+
