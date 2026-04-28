@@ -9,6 +9,8 @@ import plotly
 import json
 from ellipse_util import *
 from astropy.table import Table
+import plotly.colors as pc
+mag_r_scale=pc.sequential.Magma[::-1]
 
 
 # -------------------------
@@ -164,7 +166,7 @@ trace_hvcc_0 = go.Scatter3d(
         color=np.full(len(l1),hvcc_c),
         
         size=1,
-        colorscale="magma_r",
+        colorscale=mag_r_scale,
         cmin=color_range[0],
         
         cmax=color_range[1],
@@ -260,7 +262,7 @@ for reg in stvec:
                 marker=dict(
                     color=np.full(len(l1),plotc),
                     size=1,
-                    colorscale="magma_r",
+                    colorscale=mag_r_scale,
                     cmin=color_range[0],
                     
                     cmax=color_range[1],
