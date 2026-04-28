@@ -272,7 +272,7 @@ for reg in stvec:
                         y=0,
                         title=color + ' Median'
                     )
-                ),lighting=dict(ambient=1, diffuse=0, specular=0, roughness=1),
+                lighting=dict(ambient=1, diffuse=0, specular=0, roughness=1)) ,
                 hovertemplate=(
                     f"<b>ID: {reg}</b><br>"
                     "l: %{x:.2f}<br>"
