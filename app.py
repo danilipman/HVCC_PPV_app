@@ -74,7 +74,7 @@ def load_data():
     ratio_evf_ID,
     stvec
 ) = load_data()
-
+ratio_evf_ID_arr = np.array(ratio_evf_ID)
 
 # -------------------------
 # UI CONTROLS
@@ -236,7 +236,7 @@ for reg in stvec:
 
             plotc = float(
                 lineratio_toplot[
-                    int(np.where(int(reg) == np.array(ratio_evf_ID))[0][0])
+                    int(np.where(int(reg) == ratio_evf_ID_arr)[0][0])
                 ]
             )
 
