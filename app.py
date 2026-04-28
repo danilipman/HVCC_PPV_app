@@ -234,11 +234,12 @@ for reg in stvec:
 
         if (int(reg) in ratio_evf_ID) and (np.shape(k)[-1] == 3):
 
-            plotc = float(
-                lineratio_toplot[
-                    int(np.where(int(reg) == ratio_evf_ID_arr)[0][0])
-                ]
-            )
+            matches = np.where(int(reg) == ratio_evf_ID_arr)[0]
+            if len(matches) == 0:
+                continue
+            idx = matches[0]
+            
+            plotc = float(lineratio_toplot[idx])
 
             l1, b1, v1 = k[:,0], k[:,1], k[:,2]
 
