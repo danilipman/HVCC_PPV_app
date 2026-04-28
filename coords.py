@@ -1,4 +1,3 @@
-import pylab as pl
 import numpy as np
 from numpy import pi, sqrt, cos, sin, arctan2, linspace, log, exp, sinh, arcsinh, arccos, arcsin
 
@@ -142,88 +141,5 @@ def subtract_sun_motion(l,b,r,vl,vb,vr,vXsun=0.0,vYsun=2.2,vZsun=0.0):
   vZ = vZ + vZsun
   l,b,r,vl,vb,vr =  XYZ2lbr(X,Y,Z,vX,vY,vZ)
   return l,b,r,vl,vb,vr 
-
-####################
-# sanity checks
-#####################
-
-def lbr2xyz_sanity_check(figure=True):
-    xsun,  ysun,  zsun  = 0.0,  -8.0, 0.0
-    vxsun, vysun, vzsun = -220.0, 0.0, 0.0
-    
-    # R, theta       = 3.0, np.radians(270)  
-    # x,  y,  z      = R*cos(theta), R*sin(theta), 10.0
-    # vx, vy, vz     = 0*sin(theta), 0*cos(theta), 10.0
-
-    x,  y,  z      = np.random.rand(3)*10 - 5
-    vx, vy, vz     = np.random.rand(3)*200 - 100
-
-    l,b,r,vl,vb,vr       = xyz2lbr(x,y,z,vx,vy,vz,xsun=xsun,ysun=ysun,zsun=zsun,vxsun=vxsun,vysun=vysun,vzsun=vzsun)
-    x1,y1,z1,vx1,vy1,vz1 = lbr2xyz(l,b,r,vl,vb,vr,xsun=xsun,ysun=ysun,zsun=zsun,vxsun=vxsun,vysun=vysun,vzsun=vzsun)
-
-    print("x=%g, y=%g, z=%g, vx=%g, vy=%g, vz=%g"%(x,y,z,vx,vy,vz))
-    print("l=%g, b=%g, r=%g, vl=%g, vb=%g, vr=%g"%(l,b,r,vl,vb,vr))
-
-    print("original vs check vs difference: %g %g %g "%(x,x1,x-x1))
-    print("original vs check vs difference: %g %g %g "%(y,y1,y-y1))
-    print("original vs check vs difference: %g %g %g "%(z,z1,z-z1))
-    print("original vs check vs difference: %g %g %g "%(vx,vx1,vx-vx1))
-    print("original vs check vs difference: %g %g %g "%(vy,vy1,vy-vy1))
-    print("original vs check vs difference: %g %g %g "%(vz,vz1,vz-vz1))
-
-    if(figure):
-        fig, ax = pl.subplots(figsize=(10,5))
-        ax.plot(xsun,ysun,'.',color='b',markersize=10)
-        ax.plot(x,y,'.',color='r',markersize=10)
-        ax.quiver(x,y,vx,vy,color='r',scale_units='x',scale=50.0)
-        ax.quiver(xsun,ysun,vxsun,vysun,color='k',scale_units='x',scale=50.0)
-        ax.set_xlabel(r'$x\, {\rm [deg]}$',fontsize=22)
-        ax.set_ylabel(r'$y\, {\rm [deg]}$',fontsize=22)
-        ax.set_aspect('equal')
-        ax.set_xlim(-10,10)
-        ax.set_ylim(-10,10)
-        ax.grid()
-        ax.tick_params(labelsize=18)
-        pl.show()
-
-def subtract_sun_motion_sanity_check(figure=True):
-    xsun,  ysun,  zsun  = 0.0,  -8.0, 0.0
-    vxsun, vysun, vzsun = -220.0, 0.0, 50.0
-
-    dummy,dummy,dummy,vXsun,vYsun,vZsun = xyz2XYZ(0,0,0,0,0,0,xsun=xsun,ysun=ysun,zsun=zsun,vxsun=vxsun,vysun=vysun,vzsun=vzsun)
-    vXsun,vYsun,vZsun = -vXsun,-vYsun,-vZsun
-
-    R, theta       = 3.0, np.radians(270)  
-    x,  y,  z      = R*cos(theta), R*sin(theta), 0.0
-    vx, vy, vz     = 220*sin(theta), 0*cos(theta), 50.0
-    
-    X,Y,Z,vX,vY,vZ  = xyz2XYZ(x,y,z,vx,vy,vz,xsun=xsun,ysun=ysun,zsun=zsun,vxsun=vxsun,vysun=vysun,vzsun=vzsun)
-    # X,Y,Z,vX,vY,vZ = lbr2XYZ(l,b,r,vl,vb,vr)
-
-    l, b, r, vl, vb, vr  = xyz2lbr(x,y,z,vx,vy,vz,xsun=xsun,ysun=ysun,zsun=zsun,vxsun=vxsun,vysun=vysun,vzsun=vzsun)
-    l1,b1,r1,vl1,vb1,vr1 = subtract_sun_motion(l,b,r,vl,vb,vr,vXsun=vXsun,vYsun=vYsun,vZsun=vZsun)
-  
-    print("vxsun=%g, vysun=%g, vzsun=%g"%(vxsun,vysun,vzsun))
-    print("vXsun=%g, vYsun=%g, vZsun=%g"%(vXsun,vYsun,vZsun))
-
-    print("x=%g, y=%g, z=%g, vx=%g, vy=%g, vz=%g"%(x,y,z,vx,vy,vz))
-    print("X=%g, Y=%g, Z=%g, vX=%g, vY=%g, vZ=%g"%(X,Y,Z,vX,vY,vZ))
-    print("l=%g, b=%g, r=%g, vl=%g, vb=%g, vr=%g"%(l,b,r,vl,vb,vr))
-    print("l1=%g, b1=%g, r1=%g, vl1=%g, vb1=%g, vr1=%g"%(l1,b1,r1,vl1,vb1,vr1))
-
-    if(figure):
-        fig, ax = pl.subplots(figsize=(10,5))
-        ax.plot(xsun,ysun,'.',color='b',markersize=10)
-        ax.plot(x,y,'.',color='r',markersize=10)
-        ax.quiver(x,y,vx,vy,color='r',scale_units='x',scale=50.0)
-        ax.quiver(xsun,ysun,vxsun,vysun,color='k',scale_units='x',scale=50.0)
-        ax.set_xlabel(r'$x\, {\rm [deg]}$',fontsize=22)
-        ax.set_ylabel(r'$y\, {\rm [deg]}$',fontsize=22)
-        ax.set_aspect('equal')
-        ax.set_xlim(-10,10)
-        ax.set_ylim(-10,10)
-        ax.grid()
-        ax.tick_params(labelsize=18)
-        pl.show()
 
 
