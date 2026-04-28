@@ -258,7 +258,7 @@ for reg in stvec:
                     cmax=color_range[1],
                     opacity=0.5,
                     symbol='circle',
-                    showscale=True,
+                    showscale=False,
                     colorbar=dict(
                         orientation='h',
                         y=0,
