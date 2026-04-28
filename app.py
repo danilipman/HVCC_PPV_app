@@ -258,17 +258,4 @@ fig.update_layout(scene=dict(camera=dict(eye=dict(x=0.1, y=-2, z=0.4))))
 # -------------------------
 st.plotly_chart(fig, use_container_width=True)
 
-# -------------------------
-# DOWNLOADS
-# -------------------------
-st.download_button(
-    "Download PNG",
-    data=fig.to_image(format="png", scale=6),
-    file_name="PPV_view.png"
-)
 
-st.download_button(
-    "Download HTML",
-    data=fig.to_html(),
-    file_name="PPV_view.html"
-)
