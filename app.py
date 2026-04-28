@@ -111,6 +111,7 @@ trace_scouse = go.Scatter3d(
     z=scouse_fits.velocity,
     mode='markers',
     name='MOPRA HNCO (Henshaw+2016)',
+    showlegend=False,
     marker=dict(
         color=np.log10(scouse_fits.amp),
         size=1,
@@ -124,6 +125,7 @@ trace_sgra = go.Scatter3d(
     x=[-0.056], y=[-0.046], z=[0],
     mode='markers',
     name='Sgr A*',
+    showlegend=False,
     marker=dict(color='black', size=2, symbol='x')
 )
 
@@ -134,6 +136,7 @@ trace_ellipse = go.Scatter3d(
     z=Rings.vr,
     mode='lines',
     name='ellipse model (Lipman+2026)',
+    showlegend=False,
     line=dict(color='grey')
 )
 
@@ -156,7 +159,7 @@ trace_hvcc_0 = go.Scatter3d(
     mode='markers',
     name='HVCC data',
     legendgroup='HVCC',
-    showlegend=True,
+    showlegend=False,
     marker=dict(
         color=np.full(len(l1), hvcc_c),
         size=1,
