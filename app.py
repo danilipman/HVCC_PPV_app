@@ -134,7 +134,7 @@ trace_ellipse = go.Scatter3d(
     z=Rings.vr,
     mode='lines',
     name='ellipse model (Lipman+2026)',
-    line=dict(color='grey',size=10)
+    line=dict(color='grey')
 )
 
 # -------------------------
