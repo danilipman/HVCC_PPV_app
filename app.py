@@ -85,7 +85,7 @@ color = st.selectbox(
 )
 
 color_range = st.slider(
-    "Color Range",
+    "Line Ratio Value",
     0.0, 2.5,
     (0.0, 2.5),
     step=0.01
@@ -113,7 +113,7 @@ trace_scouse = go.Scatter3d(
     name='MOPRA HNCO (Henshaw+2016)',
     marker=dict(
         color=np.log10(scouse_fits.amp),
-        size=1,
+        size=10,
         colorscale='Blues',
         opacity=0.5,
         symbol='square'
@@ -124,7 +124,7 @@ trace_sgra = go.Scatter3d(
     x=[-0.056], y=[-0.046], z=[0],
     mode='markers',
     name='Sgr A*',
-    marker=dict(color='black', size=2, symbol='x')
+    marker=dict(color='black', size=10, symbol='x')
 )
 
 # NOTE: Rings must already exist in your environment
@@ -134,7 +134,7 @@ trace_ellipse = go.Scatter3d(
     z=Rings.vr,
     mode='lines',
     name='ellipse model (Lipman+2026)',
-    line=dict(color='grey')
+    line=dict(color='grey',size=10)
 )
 
 # -------------------------
