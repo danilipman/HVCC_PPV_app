@@ -113,7 +113,7 @@ trace_scouse = go.Scatter3d(
     name='MOPRA HNCO (Henshaw+2016)',
     marker=dict(
         color=np.log10(scouse_fits.amp),
-        size=10,
+        size=1,
         colorscale='Blues',
         opacity=0.5,
         symbol='square'
@@ -124,7 +124,7 @@ trace_sgra = go.Scatter3d(
     x=[-0.056], y=[-0.046], z=[0],
     mode='markers',
     name='Sgr A*',
-    marker=dict(color='black', size=10, symbol='x')
+    marker=dict(color='black', size=2, symbol='x')
 )
 
 # NOTE: Rings must already exist in your environment
