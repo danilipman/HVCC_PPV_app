@@ -162,14 +162,15 @@ trace_hvcc_0 = go.Scatter3d(
     showlegend=False,
     marker=dict(
         color=np.full(len(l1),hvcc_c),
-        showscale=True,
+        
         size=1,
         colorscale="magma_r",
         cmin=color_range[0],
         
         cmax=color_range[1],
         opacity=0.5,
-        symbol='circle'
+        symbol='circle',
+        showscale=True
     )
 )
 
