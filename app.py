@@ -165,7 +165,7 @@ trace_hvcc_0 = go.Scatter3d(
         size=1,
         colorscale="magma_r",
         cmin=color_range[0],
-        cmid=1,
+        
         cmax=color_range[1],
         opacity=0.5,
         symbol='circle'
@@ -253,7 +253,7 @@ for reg in stvec:
                     size=1,
                     colorscale="magma_r",
                     cmin=color_range[0],
-                    cmid=1,
+                    
                     cmax=color_range[1],
                     opacity=0.5,
                     symbol='circle',
