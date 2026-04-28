@@ -257,7 +257,7 @@ for reg in stvec:
                 name='HVCC data',
                 legendgroup='HVCC',
                 showlegend=False,
-                marker=dict(
+                marker=dict(lighting=dict(ambient=1, diffuse=0, specular=0, roughness=1)) ,
                     color=np.full(len(l1),plotc),
                     size=1,
                     colorscale="magma_r",
@@ -272,7 +272,7 @@ for reg in stvec:
                         y=0,
                         title=color + ' Median'
                     )
-                lighting=dict(ambient=1, diffuse=0, specular=0, roughness=1)) ,
+                ,
                 hovertemplate=(
                     f"<b>ID: {reg}</b><br>"
                     "l: %{x:.2f}<br>"
