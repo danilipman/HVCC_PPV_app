@@ -169,7 +169,59 @@ trace_hvcc_0 = go.Scatter3d(
     )
 )
 
-data = [trace_scouse, trace_ellipse, trace_sgra, trace_hvcc_0]
+### Fake traces for legend only ###
+trace_scouse_legend = go.Scatter3d(
+    x=[None], y=[None], z=[None],
+    mode='markers',
+    name='MOPRA HNCO (Henshaw+2016)',
+    showlegend=True,
+    marker=dict(
+        size=10,
+        color='blue',
+        symbol='square'
+    )
+)
+
+trace_sgra_legend = go.Scatter3d(
+    x=[None], y=[None], z=[None],
+    mode='markers',
+    name='Sgr A*',
+    showlegend=True,
+    marker=dict(
+        size=10,
+        color='black',
+        symbol='x'
+    )
+)
+
+trace_ellipse_legend = go.Scatter3d(
+    x=[None], y=[None], z=[None],
+    mode='lines',
+    name='ellipse model (Lipman+2026)',
+    showlegend=True,
+    line=dict(
+        color='grey',
+        width=4
+    )
+)
+
+trace_hvcc_legend = go.Scatter3d(
+    x=[None], y=[None], z=[None],
+    mode='markers',
+    name='HVCC data',
+    legendgroup='HVCC',
+    showlegend=True,
+    marker=dict(
+        size=10,
+        color='purple',
+        symbol='circle'
+    )
+)
+
+data = [trace_scouse, trace_ellipse, trace_sgra, trace_hvcc_0,trace_scouse_legend,
+    trace_ellipse_legend,
+    trace_sgra_legend,
+    trace_hvcc_legend]
 
 # -------------------------
 # LOOP HVCCs
@@ -219,6 +271,8 @@ for reg in stvec:
             )
 
             data.append(trace_hvcc)
+
+
 
 
 # -------------------------
