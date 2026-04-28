@@ -47,7 +47,7 @@ def load_data():
 
     # --- stvec ---
     with open('./DATA/stvec.json', 'r') as f:
-    loaded_dict = json.load(f)
+        loaded_dict = json.load(f)
 
     # Handle both normal JSON and double-encoded JSON
     if isinstance(loaded_dict, str):
