@@ -170,9 +170,15 @@ trace_hvcc_0 = go.Scatter3d(
         cmax=color_range[1],
         opacity=0.5,
         symbol='circle',
-        showscale=True
+        showscale=True,
+        colorbar=dict(
+                        orientation='h',
+                        y=0,
+                        title=color + ' Median'
+                    )
+                )
     )
-)
+
 
 ### Fake traces for legend only ###
 trace_scouse_legend = go.Scatter3d(
