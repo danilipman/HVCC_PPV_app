@@ -10,7 +10,7 @@ import json
 from ellipse_util import *
 from astropy.table import Table
 import plotly.colors as pc
-mag_r_scale=pc.sequential.Magma[::-1]
+mag_r_scale="inferno_r"
 
 
 # -------------------------
