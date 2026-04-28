@@ -258,14 +258,13 @@ for reg in stvec:
                 legendgroup='HVCC',
                 showlegend=False,
                 marker=dict(
-                    lighting=dict(ambient=1, diffuse=0, specular=0, roughness=1),
                     color=np.full(len(l1),plotc),
                     size=1,
                     colorscale="magma_r",
                     cmin=color_range[0],
                     
                     cmax=color_range[1],
-                    opacity=0.5,
+                    opacity=1,
                     symbol='circle',
                     showscale=False,
                     colorbar=dict(
