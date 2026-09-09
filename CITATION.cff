@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "HVCC PPV webapp"
+version: 1.8.0
+license: "MIT"
+type: software
+abstract: "scripts used to make PPV webapp for ACES CS(2-1) HVCC study "
+message: "If you use this software, please cite it as below."
+authors:
+  - given-names: Dani R.
+    family-names: Lipman
+    affiliation: University of Connecticut
+    orcid: "https://orcid.org/0000-0002-5776-9473"
+keywords:
+  - astrophysics
+  - 3-D visualizations
